@@ -48,6 +48,7 @@ class DbHelper {
   Future<Database> OpenDB() async {
     Directory appDir = await getApplicationDocumentsDirectory();
     String dbpath = join(appDir.path, "noteDB.db");
+
     return await openDatabase(dbpath, onCreate: (db, version) {
       db.execute(
           "create table $TABLE_NOTE ( $COLUMN_NOTE_SNO Integer primary key autoincrement, "
